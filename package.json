@@ -1,0 +1,30 @@
+{
+  "name": "template-with-nest-and-react",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Template with Nest.js and React",
+  "license": "MIT",
+  "author": "KyuHyuk Lee <lee@kyuhyuk.kr>",
+  "scripts": {
+    "start": "docker run -p 8080:8080 leekyuhyuk/template-with-nest-and-react",
+    "build": "docker build -t leekyuhyuk/template-with-nest-and-react .",
+    "clean": "rimraf backend/dist",
+    "install": "concurrently \"cd frontend && npm install\" \"cd backend && npm install\"",
+    "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run start:dev\"",
+    "prod:frontend": "cd frontend && npm run build",
+    "prod:backend": "cd backend && npm run start:prod",
+    "prod": "npm run clean && npm run prod:frontend && npm run prod:backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeKyuHyuk/Template-with-Nest-and-React.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LeeKyuHyuk/Template-with-Nest-and-React/issues"
+  },
+  "homepage": "https://github.com/LeeKyuHyuk/Template-with-Nest-and-React#readme",
+  "dependencies": {
+    "concurrently": "^6.2.0",
+    "rimraf": "^3.0.2"
+  }
+}
